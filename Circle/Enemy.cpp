@@ -60,6 +60,8 @@ void Enemy::collision(bool direction, const GlobalRes &res)
 	{
 		for (int j = position.left / res.blockSize; j < (position.left + position.width) / res.blockSize; j++)
 		{
+			if (i >= res.levelMap.size() || j >= res.levelMap[i].size())
+				continue;
 			if (res.levelMap[i][j] == '0')
 			{
 				if (direction)
